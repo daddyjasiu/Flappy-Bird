@@ -1,2 +1,2 @@
-# Space Invaders - my way of learning Python
+# Flappy Bird - my way of learning Python
  
