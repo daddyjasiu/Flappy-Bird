@@ -38,6 +38,11 @@ def rotate_bird(bird):
 	new_bird = pygame.transform.rotozoom(bird, -bird_movement*3, 1)
 	return new_bird
 
+def bird_animation():
+	new_bird = bird_frames[bird_index]
+	new_bird_rect = new_bird.get_rect(center=(100, bird_rect.centery))
+	return new_bird, new_bird_rect
+
 pygame.init()
 
 width = 576
@@ -49,23 +54,35 @@ clock = pygame.time.Clock()
 gravity = 0.25
 bird_movement = 0
 game_active = True
+score = 0
+high_score = 0
 
 # Background
-bg_surface = pygame.image.load('S:/repo/Flappy-Bird/main/assets/sprites/background-day.png').convert()
+bg_surface = pygame.image.load('assets/sprites/background-day.png').convert()
 bg_surface = pygame.transform.scale2x(bg_surface)
 
 # Floor
-floor_surface = pygame.image.load('S:/repo/Flappy-Bird/main/assets/sprites/base.png').convert()
+floor_surface = pygame.image.load('assets/sprites/base.png').convert()
 floor_surface = pygame.transform.scale2x(floor_surface)
 floor_x_pos = 0
 
 # Bird
-bird_surface = pygame.image.load('S:/repo/Flappy-Bird/main/assets/sprites/bluebird-midflap.png').convert_alpha()
-bird_surface = pygame.transform.scale2x(bird_surface)
+bird_downflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/bluebird-downflap.png')).convert_alpha()
+bird_midflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/bluebird-midflap.png')).convert_alpha()
+bird_upflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/bluebird-upflap.png')).convert_alpha()
+bird_frames = [bird_downflap, bird_midflap, bird_upflap]
+bird_index = 0
+bird_surface = bird_frames[bird_index]
 bird_rect = bird_surface.get_rect(center=(100, 350))
+BIRDFLAP = pygame.USEREVENT + 1
+pygame.time.set_timer(BIRDFLAP, 200)
+
+# bird_surface = pygame.image.load('S:/repo/Flappy-Bird/main/assets/sprites/bluebird-midflap.png').convert_alpha()
+# bird_surface = pygame.transform.scale2x(bird_surface)
+# bird_rect = bird_surface.get_rect(center=(100, 350))
 
 # Pipes
-pipe_surface = pygame.image.load('S:/repo/Flappy-Bird/main/assets/sprites/pipe-green.png').convert()
+pipe_surface = pygame.image.load('assets/sprites/pipe-green.png').convert()
 pipe_surface = pygame.transform.scale2x(pipe_surface)
 pipe_list = []
 SPAWNPIPE = pygame.USEREVENT
@@ -79,6 +96,7 @@ while True:
 		if event.type == pygame.QUIT:
 			pygame.quit()
 			sys.exit()
+
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_SPACE and game_active == True:
 				bird_movement = 0
@@ -91,6 +109,13 @@ while True:
 
 		if event.type == SPAWNPIPE:
 			pipe_list.extend(create_pipe())
+
+		if event.type == BIRDFLAP:
+			if bird_index < 2:
+				bird_index += 1
+			else:
+				bird_index = 0
+			bird_surface,bird_rect = bird_animation()
 
 	screen.blit(bg_surface, (0, 0))
 
