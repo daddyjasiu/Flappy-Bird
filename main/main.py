@@ -24,7 +24,7 @@ def draw_pipes(pipes):
 
 def move_pipes(pipes):
     for pipe in pipes:
-        pipe.centerx -= 5
+        pipe.centerx -= 3.5
     return pipes
 
 
@@ -139,7 +139,7 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE and game_active == True:
                 bird_movement = 0
-                bird_movement -= 12
+                bird_movement -= 10
                 flap_sound.play()
             if event.key == pygame.K_SPACE and game_active == False:
                 game_active = True
@@ -170,7 +170,12 @@ while True:
 
         pipe_list = move_pipes(pipe_list)
         draw_pipes(pipe_list)
-        score += 0.01
+
+        for pipe in pipe_list:
+            if 97 < pipe.centerx < 103:
+                score += 0.5
+                score_sound.play()
+
         score_display('main_game')
 
     else:
