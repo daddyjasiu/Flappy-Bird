@@ -50,7 +50,7 @@ height = 1024
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 
-game_font = pygame.font.Font('fonts/04B_19.ttf', 40)
+game_font = pygame.font.Font('assets/fonts/04B_19.ttf', 40)
 
 # Game Variables
 gravity = 0.25
