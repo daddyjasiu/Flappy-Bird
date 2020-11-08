@@ -83,11 +83,11 @@ while True:
 			if event.key == pygame.K_SPACE and game_active == False:
 				game_active = True
 				pipe_list.clear()
+				bird_rect.center = (100, 512)
+				bird_movement = 0
 
 		if event.type == SPAWNPIPE:
 			pipe_list.extend(create_pipe())
-
-
 
 	screen.blit(bg_surface, (0, 0))
 
