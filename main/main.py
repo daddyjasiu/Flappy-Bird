@@ -1,4 +1,7 @@
-import pygame, sys, random
+import pygame
+import random
+import sys
+
 
 # Functions
 def draw_floor():
@@ -24,8 +27,9 @@ def draw_pipes(pipes):
 
 def move_pipes(pipes):
     for pipe in pipes:
-        pipe.centerx -= 3.5
-    return pipes
+        pipe.centerx -= 5
+    visible_pipes = [pipe for pipe in pipes if pipe.right > -50]
+    return visible_pipes
 
 
 def check_collision(pipes):
@@ -72,6 +76,19 @@ def update_score(score, high_score):
     return high_score
 
 
+def score_check():
+    global score, can_score
+
+    if pipe_list:
+        for pipe in pipe_list:
+            if 0 < pipe.centerx < 200 and can_score:
+                score += 1
+                score_sound.play()
+                can_score = False
+            if pipe.centerx < 0:
+                can_score = True
+
+
 # Game initializing
 # pygame.mixer.pre_init(frequency=44100, size=16, channels=2, buffer=512)
 pygame.init()
@@ -88,6 +105,7 @@ bird_movement = 0
 game_active = True
 score = 0
 high_score = 0
+can_score = True
 
 # Background
 bg_surface = pygame.image.load('assets/sprites/background-day.png').convert()
@@ -99,9 +117,9 @@ floor_surface = pygame.transform.scale2x(floor_surface)
 floor_x_pos = 0
 
 # Bird
-bird_downflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/bluebird-downflap.png')).convert_alpha()
-bird_midflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/bluebird-midflap.png')).convert_alpha()
-bird_upflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/bluebird-upflap.png')).convert_alpha()
+bird_downflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/yellowbird-downflap.png')).convert_alpha()
+bird_midflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/yellowbird-midflap.png')).convert_alpha()
+bird_upflap = pygame.transform.scale2x(pygame.image.load('assets/sprites/yellowbird-upflap.png')).convert_alpha()
 bird_frames = [bird_downflap, bird_midflap, bird_upflap]
 bird_index = 0
 bird_surface = bird_frames[bird_index]
@@ -171,17 +189,14 @@ while True:
         pipe_list = move_pipes(pipe_list)
         draw_pipes(pipe_list)
 
-        for pipe in pipe_list:
-            if 97 < pipe.centerx < 103:
-                score += 0.5
-                score_sound.play()
-
+        score_check()
         score_display('main_game')
 
     else:
         screen.blit(game_over_surface, game_over_rect)
         high_score = update_score(score, high_score)
         score_display('game_over')
+        can_score = True
 
     floor_x_pos -= 1
     draw_floor()
