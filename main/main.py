@@ -43,12 +43,14 @@ def bird_animation():
 	new_bird_rect = new_bird.get_rect(center=(100, bird_rect.centery))
 	return new_bird, new_bird_rect
 
+# Game initializing
 pygame.init()
-
 width = 576
 height = 1024
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
+
+game_font = pygame.font.Font('fonts/04B_19.ttf', 40)
 
 # Game Variables
 gravity = 0.25
