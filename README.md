@@ -19,7 +19,12 @@ The bird is an another surface, split into three states called `bird_frames`. It
 
 
 ### 3) Pipes
+Creating pipes was actually not that easy. The bird has to fly between two pipes: one being bottom pipe and second being top pipe. They have to spawn at random heights so that the game is more challenging. I started by importing pipe surface, creating `USEREVENT` which helps me with spawning them and writing three functions: `create_pipe`, `draw_pipes` and `move_pipes`. The first one basically randomizes the height of each pipe and assigns it to their `Y` value. The second function draws pipes on the screen (if pipe is < 1024 then flip the pipe vertically, because we need one pipe facing down and one pipe facing up). Last function moves pipes to the left - pretty straightforward.
 
 <p align="center">
   <img width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/4.png?raw=true">
 </p>
+
+
+### 4) Score system
+
