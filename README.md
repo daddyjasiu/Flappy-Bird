@@ -3,7 +3,7 @@
 So I have decided to make a Flappy Bird copy in Python 3.9 using pygame 2.0 library. I want this README to be kind of a blog post so that I can show you the steps I took while developing this game. Now to begin with...
 
 
-<img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
+<img width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
 
 
 ### 1) Background and floor
