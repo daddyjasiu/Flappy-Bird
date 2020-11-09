@@ -54,3 +54,7 @@ return visible_pipes
 
 ## ...and done!
 The game is playable, everything is working properly. I've really enjoyed this project and I'm looking forward to developing something new using `pygame` in `Python`.
+
+<p align="center">
+  <img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
+</p>
