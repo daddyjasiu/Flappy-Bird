@@ -9,6 +9,4 @@ I've added a static background and scaled it up 2x. That is my main surface. The
   <img src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/1.png?raw=true">
 </p>
 
-![GitHub Logo](/img/1.png)
-
 ### 2) Bird
