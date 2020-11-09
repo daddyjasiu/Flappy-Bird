@@ -41,5 +41,5 @@ Every time player flies up, the bird flaps its wings and makes a `flap_sound`. W
 You may be wondering how I calculate collisions - it's actually quite simple. In `pygame` there is a thing called `rect`, that basically puts a rectangle around a surface. I've put `rects` around `bird_surface` and `pipe_surface`, and if these rectangles touch each other, player loses. It is not the best way to calculate and resolve collisions, but for out sprites and movement, it works quite well. In addition, player loses if bird touches the ground or flies too high. `Blue` colour below is to represent the `rects` and `red` is the collision of the bird and pipe resulting in player's loss.
 
 <p align="center">
-  <img width = "232" height = "156" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/6.png?raw=true">
+  <img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/6.png?raw=true">
 </p>
