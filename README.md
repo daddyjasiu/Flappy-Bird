@@ -16,3 +16,10 @@ The bird is an another surface, split into three states called `bird_frames`. It
 <p align="center">
   <img width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/2.png?raw=true">
 </p>
+
+
+### 3) Pipes
+
+<p align="center">
+  <img width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/3.png?raw=true">
+</p>
