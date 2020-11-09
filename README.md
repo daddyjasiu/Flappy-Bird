@@ -26,5 +26,9 @@ Creating pipes was actually not that easy. The bird has to fly between two pipes
 </p>
 
 
-### 4) Score system
+### 4) Score system, game over screen and sounds
+Player scores a point whenever he passes through pipes. Because the game runs pretty fast, I had to add another condition to scoring a point which is: previous pipe (one already scored) has to be off screen (so basically it's `x` value has to be < 0). With that, the points are calculated correctly, one by one. High score is also calculated for each run. 
 
+Score and high score are always shown after player loses. I have used original FB font called `04B_19` for output and I have also put `game_over` image so it looks good after lose.
+
+Every time player flies up, the bird flaps its wings and makes a `flap_sound`. When scoring point, you can hear `score_sound` and if you die, you hear `death_sound`.
