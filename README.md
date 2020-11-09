@@ -11,7 +11,7 @@ I've added a static background and scaled it up by `2x`. That is my main surface
 
 
 ### 2) Bird
-The bird is an another surface, split into three states called `bird_frames`. It contains of 3 frames and the game cycles through them so that the bird seems to be flying - simple animation. I have also added gravity - bird's `x` axis is static, but `y` axis is decreasing with every tick, so the bird is falling down if we aren't pressing space (space = fly up). The bird is also rotating while falling down or flying up using `rotozoom`.
+The bird is an another surface, split into three states called `bird_frames`. It contains of 3 frames and the game cycles through them so that the bird seems to be flying - simple animation. I have also added `gravity` - bird's `x` axis is static, but `y` axis is decreasing with every tick, so the bird is falling down if we aren't pressing space (space = fly up). The bird is also rotating while falling down or flying up using `rotozoom`.
 
 <p align="center">
   <img width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/2.png?raw=true">
@@ -38,8 +38,23 @@ Every time player flies up, the bird flaps its wings and makes a `flap_sound`. W
 </p>
 
 ### 5) Collisions
-You may be wondering how I calculate collisions - it's actually quite simple. In `pygame` there is a thing called `rect`, that basically puts a rectangle around a surface. I've put `rects` around `bird_surface` and `pipe_surface`, and if these rectangles touch each other, player loses. It is not the best way to calculate and resolve collisions, but for out sprites and movement, it works quite well. In addition, player loses if bird touches the ground or flies too high. `Blue` colour below is to represent the `rects` and `red` is the collision of the bird and pipe resulting in player's loss.
+You may be wondering how I calculate collisions - it's actually quite simple. In `pygame` there is a thing called `rect` that basically puts a rectangle around a surface. I've put `rects` around `bird_surface` and `pipe_surface`, and if these rectangles touch each other, player loses. It is not the best way to calculate and resolve collisions, but for out sprites and movement, it works quite well. In addition, player loses if bird touches the ground or flies too high. `Blue` colour below is to represent the `rects` and `red` is the collision of the bird and pipe resulting in player's loss.
 
 <p align="center">
-  <src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/6.png?raw=true">
+  <img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/6.png?raw=true">
+</p>
+
+### 6) Optimization
+After testing the game for any bugs I've noticed that the longer we play, the slower the game gets. I've noticed, that it is because the pipes were generating infinitely and were just left behind as we progressed further in game. I fixed that by detecting pipes that are already off screen, and drawing only these, that are not with this line of code: 
+
+```    
+visible_pipes = [pipe for pipe in pipes if pipe.right > -50]
+return visible_pipes
+```
+
+## ...and done!
+The game is playable, everything is working properly. I've really enjoyed this project and I'm looking forward to developing something new using `pygame` in `Python`.
+
+<p align="center">
+  <img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
 </p>
