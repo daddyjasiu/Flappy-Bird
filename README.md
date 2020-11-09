@@ -12,3 +12,7 @@ I've added a static background and scaled it up by `2x`. That is my main surface
 
 ### 2) Bird
 The bird is an another surface, split into three states called `bird_frames`. It contains of 3 frames and the game cycles through them so that the bird seems to be flying - simple animation. I have also added gravity - bird's `x` axis is static, but `y` axis is decreasing with every tick, so the bird is falling down if we aren't pressing space (space = fly up). The bird is also rotating while falling down or flying up using `rotozoom`.
+
+<p align="center">
+  <img width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/2.png?raw=true">
+</p>
