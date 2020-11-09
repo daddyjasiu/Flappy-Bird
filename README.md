@@ -43,3 +43,10 @@ You may be wondering how I calculate collisions - it's actually quite simple. In
 <p align="center">
   <img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/6.png?raw=true">
 </p>
+
+### 6) Optimization
+After testing the game for any bugs I've noticed that the longer we play, the slower the game gets. I've noticed, that it is because the pipes were generating infinitely and were just left behind as we progressed further in game. I fixed that by detecting pipes that are already off screen, and drawing only these, that are not with this line of code: ```    visible_pipes = [pipe for pipe in pipes if pipe.right > -50]
+    return visible_pipes```
+
+## ...and done!
+The game is playable, everything is working properly. I've really enjoyed this project and I'm looking forward to developing something new using `pygame` in `Python`.
