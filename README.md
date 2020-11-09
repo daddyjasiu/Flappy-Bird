@@ -1,4 +1,5 @@
 # Flappy Bird - my way of learning Python
+<<<<<<< HEAD
 
 <p>
 <img align="right" width = "186" height = "328" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
@@ -6,6 +7,11 @@
 So I have decided to make a Flappy Bird copy in Python 3.9 using pygame 2.0 library. I want this README to be kind of a blog post so that I can show you the steps I took while developing this game. Now to begin with...
 
 
+=======
+ 
+So I have decided to make a Flappy Bird copy in Python 3.9 using pygame 2.0 library. I want this README to be kind of a blog post so that I can show you the steps I took while developing this game. Now to begin with...
+
+>>>>>>> parent of 840c684... Update README.md
 ### 1) Background and floor
 
 <p>
@@ -63,3 +69,11 @@ return visible_pipes
 
 ## ...and done!
 The game is playable, everything is working properly. I've really enjoyed this project and I'm looking forward to developing something new using `pygame` in `Python`.
+
+<p align="center">
+<<<<<<< HEAD
+  <img width = "348" height = "234" src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
+=======
+  <img src="https://github.com/hi-im-happy/Flappy-Bird/blob/main/img/run.gif?raw=true">
+>>>>>>> parent of a8b0a13... Update README.md
+</p>
